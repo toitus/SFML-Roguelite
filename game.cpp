@@ -1,7 +1,7 @@
 #include "game.hpp"
 
 Game::Game() {
-    window.create(sf::VideoMode(1280, 720, sf::VideoMode::getDesktopMode().bitsPerPixel), "Golf");
+    window.create(sf::VideoMode(1280, 720, sf::VideoMode::getDesktopMode().bitsPerPixel), "Rogue");
     view = sf::View(sf::Vector2f(0, 0), sf::Vector2f(window.getSize().x, window.getSize().y));
 }
 
