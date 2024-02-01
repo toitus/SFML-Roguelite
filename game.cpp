@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include "Game.hpp"
 
 Game::Game() {
     window.create(sf::VideoMode(1280, 720, sf::VideoMode::getDesktopMode().bitsPerPixel), "Rogue");
