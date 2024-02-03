@@ -3,6 +3,9 @@
 Game::Game() {
     window.create(sf::VideoMode(1280, 720, sf::VideoMode::getDesktopMode().bitsPerPixel), "Rogue");
     view = sf::View(sf::Vector2f(0, 0), sf::Vector2f(window.getSize().x, window.getSize().y));
+    if (!gameFont.loadFromFile("content/Catbrother.ttf")) {
+        std::cout << "Catbrother.ttf couldn't load" << std::endl;
+    }
 }
 
 void Game::run() {

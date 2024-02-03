@@ -19,6 +19,8 @@ class Game {
         sf::Time timeSinceLastUpdate = sf::Time::Zero;
         sf::Time targetUpdateTime = sf::seconds(1.f/60.f);
 
+        sf::Font gameFont;
+
         void events();
         void update();
         void draw();
