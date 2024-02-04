@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <iostream>
+
 class Game {
     public:
         Game();
@@ -19,6 +21,7 @@ class Game {
         sf::Time timeSinceLastUpdate = sf::Time::Zero;
         sf::Time targetUpdateTime = sf::seconds(1.f/60.f);
 
+        sf::Texture tileset;
         sf::Font gameFont;
 
         void events();

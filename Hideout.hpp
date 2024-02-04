@@ -2,14 +2,21 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Tile.hpp"
+
 class Hideout {
     public:
-        Hideout();
+        Hideout() {};
 
-        void initialize(sf::Font* font);
+        void initialize(sf::Texture* tileset);
+
+        void draw(sf::RenderWindow* window);
 
     private:
 
-        sf::Font* gameFont;
-    
+        int rows = 30;
+        int columns = 30;
+
+        std::vector<std::vector<Tile>> layout;
+
 };
