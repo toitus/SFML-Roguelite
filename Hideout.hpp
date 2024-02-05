@@ -16,6 +16,7 @@ class Hideout {
 
         int rows = 30;
         int columns = 30;
+        int tilesize = 20;
 
         std::vector<std::vector<Tile>> layout;
 

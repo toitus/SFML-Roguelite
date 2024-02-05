@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include "Hideout.hpp"
+
 class Game {
     public:
         Game();
@@ -23,6 +25,8 @@ class Game {
 
         sf::Texture tileset;
         sf::Font gameFont;
+
+        Hideout hideout;
 
         void events();
         void update();
