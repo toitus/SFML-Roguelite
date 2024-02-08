@@ -47,16 +47,14 @@ void World::update() {
 }
 
 void World::draw(sf::RenderWindow* window) {
-    drawMaps(window);
+    drawMap(window);
     player.draw(window);
 }
 
-void World::drawMaps(sf::RenderWindow* window) {
-    for (int m = 0; m < maps.size(); ++m) {
-        for (int r = 0; r < maps[m].size(); ++r) {
-            for (int c = 0; c < maps[m][r].size(); ++c) {
-                maps[m][r][c].draw(window);
-            }
+void World::drawMap(sf::RenderWindow* window) {
+    for (int r = 0; r < maps[currentMap].size(); ++r) {
+        for (int c = 0; c < maps[currentMap][r].size(); ++c) {
+            maps[currentMap][r][c].draw(window);
         }
     }
 }
@@ -71,8 +69,4 @@ void World::handlePlayerMovement() {
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && maps[currentMap][player.getRow()][player.getColumn()+1].isWalkable()) {
         player.moveRight();
     }
-}
-
-sf::Vector2f World::getPlayerCenter() {
-    return sf::Vector2f((player.getColumn()*tilesize)+10, (player.getRow()*tilesize)+10);
 }

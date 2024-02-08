@@ -10,7 +10,7 @@ Game::Game() {
         std::cout << "Catbrother.ttf failed to load" << std::endl;
     }
     world.initialize(&tileset);
-    view.setCenter(world.getPlayerCenter());
+    view.setCenter(sf::Vector2f(250, 250));
 }
 
 void Game::run() {

@@ -24,6 +24,10 @@ int Player::getColumn() {
     return (int)sprite.getPosition().x/size;
 }
 
+void Player::setPosition(sf::Vector2f p) {
+    sprite.setPosition(p);
+}
+
 void Player::moveUp() {
     if (movementCooldown == 0) {
         sprite.move(0, -size);

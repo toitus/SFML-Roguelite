@@ -14,6 +14,8 @@ class Player {
         int getRow();
         int getColumn();
 
+        void setPosition(sf::Vector2f p);
+
         void moveUp();
         void moveLeft();
         void moveDown();
@@ -26,5 +28,5 @@ class Player {
 
         //we update at 60fps, 30 frames = 0.5 seconds
         int movementCooldown = 0;
-        int speed = 15;
+        int speed = 20;
 };

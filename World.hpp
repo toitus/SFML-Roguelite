@@ -13,8 +13,6 @@ class World {
         void update();
         void draw(sf::RenderWindow* window);
 
-        sf::Vector2f getPlayerCenter();
-
     private:
 
         int tilesize = 20;
@@ -28,7 +26,7 @@ class World {
 
         Player player;
 
-        void drawMaps(sf::RenderWindow* window);
+        void drawMap(sf::RenderWindow* window);
 
         void handlePlayerMovement();
 
