@@ -62,11 +62,17 @@ void World::drawMap(sf::RenderWindow* window) {
 void World::handlePlayerMovement() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
         player.moveUp();
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && maps[currentMap][player.getRow()][player.getColumn()-1].isWalkable()) {
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && maps[currentMap][player.getRow()][player.getColumn()-1].isWalkable()) {
         player.moveLeft();
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && maps[currentMap][player.getRow()+1][player.getColumn()].isWalkable()) {
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && maps[currentMap][player.getRow()+1][player.getColumn()].isWalkable()) {
         player.moveDown();
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && maps[currentMap][player.getRow()][player.getColumn()+1].isWalkable()) {
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && maps[currentMap][player.getRow()][player.getColumn()+1].isWalkable()) {
         player.moveRight();
     }
 }
