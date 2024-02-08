@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "Hideout.hpp"
+#include "World.hpp"
 
 class Game {
     public:
@@ -26,9 +26,11 @@ class Game {
         sf::Texture tileset;
         sf::Font gameFont;
 
-        Hideout hideout;
+        World world;
 
         void events();
         void update();
         void draw();
+
+        void handlePlayerMovement();
 };

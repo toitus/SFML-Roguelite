@@ -11,7 +11,10 @@ class Tile {
 
         void draw(sf::RenderWindow* window);
 
-        void setTextureRect(sf::IntRect rect);
+        void setTextureRect(int textureRow, int textureColumn);
+        void setWalkable(bool w);
+
+        bool isWalkable();
 
     private:
 

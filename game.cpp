@@ -2,15 +2,15 @@
 
 Game::Game() {
     window.create(sf::VideoMode(1280, 720, sf::VideoMode::getDesktopMode().bitsPerPixel), "Rogue");
-    view = sf::View(sf::Vector2f(300, 300), sf::Vector2f(window.getSize().x, window.getSize().y));
+    view = sf::View(sf::Vector2f(0, 0), sf::Vector2f(window.getSize().x, window.getSize().y));
     if (!tileset.loadFromFile("content/lonesome.png")) {
         std::cout << "lonesome.png failed to load" << std::endl;
     }
     if (!gameFont.loadFromFile("content/Catbrother.ttf")) {
         std::cout << "Catbrother.ttf failed to load" << std::endl;
     }
-
-    hideout.initialize(&tileset);
+    world.initialize(&tileset);
+    view.setCenter(world.getPlayerCenter());
 }
 
 void Game::run() {
@@ -49,12 +49,12 @@ void Game::events() {
 }
 
 void Game::update() {
-
+    world.update();
 }
 
 void Game::draw() {
     window.clear(sf::Color::Black);
         window.setView(view);
-        hideout.draw(&window);
+        world.draw(&window);
     window.display();
 }

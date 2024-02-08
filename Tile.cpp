@@ -11,6 +11,14 @@ void Tile::draw(sf::RenderWindow* window) {
     window->draw(sprite);
 }
 
-void Tile::setTextureRect(sf::IntRect rect) {
-    sprite.setTextureRect(rect);
+void Tile::setTextureRect(int textureRow, int textureColumn) {
+    sprite.setTextureRect(sf::IntRect(textureColumn*size, textureRow*size, size, size));
+}
+
+void Tile::setWalkable(bool w) {
+    walkable = w;
+}
+
+bool Tile::isWalkable() {
+    return walkable;
 }
