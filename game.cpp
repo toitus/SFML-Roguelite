@@ -36,6 +36,8 @@ void Game::events() {
             window.setView(view);
         }
 
+        world.events(&event);
+
         if (event.type == sf::Event::MouseWheelScrolled) {
             if (event.mouseWheelScroll.delta > 0 && zoomedOut) { 
                 view.zoom(1.f/zoom); 

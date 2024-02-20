@@ -10,6 +10,7 @@ class World {
         World() {};
 
         void initialize(sf::Texture* tileset);
+        void events(sf::Event* event);
         void update();
         void draw(sf::RenderWindow* window);
 
@@ -25,9 +26,16 @@ class World {
         int hideoutColumns = 25;
 
         Player player;
+        sf::Keyboard::Key lastKeyPressed;
 
         void drawMap(sf::RenderWindow* window);
 
         void handlePlayerMovement();
+
+        void constructHideout(sf::Texture* tileset);
+
+        //pathfinding for enemy to player
+        //take difference of row/column of enemy and player
+        //advance toward adjacent square randomly choosing open tiles
 
 };

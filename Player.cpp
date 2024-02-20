@@ -3,7 +3,7 @@
 void Player::initialize(sf::Texture* texture, sf::Vector2f position) {
     sprite.setTexture(*texture);
     sprite.setTextureRect(sf::IntRect(size, 0, size, size));
-    sprite.setPosition(position*(float)size);
+    sprite.setPosition(position*static_cast<float>(size));
 }
 
 void Player::update() {
@@ -17,11 +17,11 @@ void Player::draw(sf::RenderWindow* window) {
 }
 
 int Player::getRow() {
-    return (int)sprite.getPosition().y/size;
+    return static_cast<int>(sprite.getPosition().y/size);
 }
 
 int Player::getColumn() {
-    return (int)sprite.getPosition().x/size;
+    return static_cast<int>(sprite.getPosition().x/size);
 }
 
 void Player::setPosition(sf::Vector2f p) {
