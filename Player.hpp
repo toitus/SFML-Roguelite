@@ -36,4 +36,6 @@ class Player {
         std::vector<sf::Vector2f> movementQueue;
         sf::Vector2f lastMove = sf::Vector2f(0, 0);
 
+        void applyQueuedMovement();
+
 };
