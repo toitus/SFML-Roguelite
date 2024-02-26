@@ -26,7 +26,7 @@ class World {
         int hideoutColumns = 25;
 
         Player player;
-        sf::Keyboard::Key lastKeyPressed;
+        sf::Keyboard::Key lastKeyPressed = sf::Keyboard::Unknown;
 
         void drawMap(sf::RenderWindow* window);
 

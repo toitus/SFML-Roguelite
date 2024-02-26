@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Player {
     public:
@@ -21,6 +22,8 @@ class Player {
         void moveDown();
         void moveRight();
 
+        void queueMovement(sf::Vector2f offset);
+
     private:
         sf::Sprite sprite;
 
@@ -30,5 +33,7 @@ class Player {
         int movementCooldown = 0;
         int speed = 24;
 
+        std::vector<sf::Vector2f> movementQueue;
+        sf::Vector2f lastMove = sf::Vector2f(0, 0);
 
 };

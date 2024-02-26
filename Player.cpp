@@ -9,7 +9,17 @@ void Player::initialize(sf::Texture* texture, sf::Vector2f position) {
 void Player::update() {
     if (movementCooldown > 0) {
         movementCooldown -= 1;
+    } else {
+        if (movementQueue.size() > 0) {
+            sprite.move(movementQueue.front().x, movementQueue.front().y);
+            lastMove = movementQueue.front();
+            movementQueue.erase(movementQueue.begin());
+            movementCooldown = speed;
+        } else {
+            lastMove = sf::Vector2f(0, 0);
+        }
     }
+    std::cout << movementQueue.size() << std::endl;
 }
 
 void Player::draw(sf::RenderWindow* window) {
@@ -28,30 +38,8 @@ void Player::setPosition(sf::Vector2f p) {
     sprite.setPosition(p);
 }
 
-void Player::moveUp() {
-    if (movementCooldown == 0) {
-        sprite.move(0, -size);
-        movementCooldown = speed;
-    }
-}
-
-void Player::moveLeft() {
-    if (movementCooldown == 0) {
-        sprite.move(-size, 0);
-        movementCooldown = speed;
-    }
-}
-
-void Player::moveDown() {
-    if (movementCooldown == 0) {
-        sprite.move(0, size);
-        movementCooldown = speed;
-    }
-}
-
-void Player::moveRight() {
-    if (movementCooldown == 0) {
-        sprite.move(size, 0);
-        movementCooldown = speed;
+void Player::queueMovement(sf::Vector2f offset) {
+    if (movementQueue.empty() && offset != lastMove) {
+        movementQueue.push_back(offset); 
     }
 }
