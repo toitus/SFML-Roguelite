@@ -26,6 +26,11 @@ class World {
         int hideoutColumns = 25;
 
         Player player;
+        sf::Vector2f up = sf::Vector2f(0, -20);
+        sf::Vector2f left = sf::Vector2f(-20, 0);
+        sf::Vector2f down = sf::Vector2f(0, 20);
+        sf::Vector2f right = sf::Vector2f(20, 0);
+
         sf::Keyboard::Key lastKeyPressed = sf::Keyboard::Unknown;
 
         void drawMap(sf::RenderWindow* window);

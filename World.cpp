@@ -7,15 +7,24 @@ void World::initialize(sf::Texture* tileset) {
 
 void World::events(sf::Event* event) {
     if (event->type == sf::Event::KeyPressed) {
-        lastKeyPressed = event->key.code;
+        // --- player movement ---
         if (event->key.code == sf::Keyboard::W && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
-            player.queueMovement(sf::Vector2f(0, -20));
+            player.queueMovement(up);
         }
+        if (event->key.code == sf::Keyboard::A && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
+            player.queueMovement(left);
+        }
+        if (event->key.code == sf::Keyboard::S && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
+            player.queueMovement(down);
+        }
+        if (event->key.code == sf::Keyboard::D && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
+            player.queueMovement(right);
+        }
+        // --- end player movement ---
     }
 }
 
 void World::update() {
-    handlePlayerMovement();
     player.update();
 }
 
@@ -29,31 +38,6 @@ void World::drawMap(sf::RenderWindow* window) {
         for (int c = 0; c < maps[currentMap][r].size(); ++c) {
             maps[currentMap][r][c].draw(window);
         }
-    }
-}
-
-void World::handlePlayerMovement() {
-    bool w = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-    bool a = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
-    bool s = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
-    bool d = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
-
-    bool lastKeyIsPressed = sf::Keyboard::isKeyPressed(lastKeyPressed);
-
-    /*if (lastKeyPressed == sf::Keyboard::W && lastKeyIsPressed && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
-        player.queueMovement(sf::Vector2f(0, -20));
-    }*/
-
-    if (a && (lastKeyPressed == sf::Keyboard::A) && maps[currentMap][player.getRow()][player.getColumn()-1].isWalkable()) {
-        player.queueMovement(sf::Vector2f(-20, 0));
-    }
-
-    if (s && (lastKeyPressed == sf::Keyboard::S) && maps[currentMap][player.getRow()+1][player.getColumn()].isWalkable()) {
-        player.queueMovement(sf::Vector2f(0, 20));
-    }
-
-    if (d && (lastKeyPressed == sf::Keyboard::D) && maps[currentMap][player.getRow()][player.getColumn()+1].isWalkable()) {
-        player.queueMovement(sf::Vector2f(20, 0));
     }
 }
 
