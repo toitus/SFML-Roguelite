@@ -11,13 +11,13 @@ void World::events(sf::Event* event) {
         if (event->key.code == sf::Keyboard::W && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
             player.queueMovement(up);
         }
-        if (event->key.code == sf::Keyboard::A && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
+        if (event->key.code == sf::Keyboard::A && maps[currentMap][player.getRow()][player.getColumn()-1].isWalkable()) {
             player.queueMovement(left);
         }
-        if (event->key.code == sf::Keyboard::S && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
+        if (event->key.code == sf::Keyboard::S && maps[currentMap][player.getRow()+1][player.getColumn()].isWalkable()) {
             player.queueMovement(down);
         }
-        if (event->key.code == sf::Keyboard::D && maps[currentMap][player.getRow()-1][player.getColumn()].isWalkable()) {
+        if (event->key.code == sf::Keyboard::D && maps[currentMap][player.getRow()][player.getColumn()+1].isWalkable()) {
             player.queueMovement(right);
         }
         // --- end player movement ---
