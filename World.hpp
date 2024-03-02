@@ -18,12 +18,17 @@ class World {
 
         int tilesize = 20;
 
-        std::vector<std::vector<std::vector<Tile>>> maps;
+        std::vector<std::vector<std::vector<Tile>>> rooms;
 
         int currentMap = 0;
 
         int hideoutRows = 25;
         int hideoutColumns = 25;
+
+        int maximumRoomRows = 50;
+        int maximumRoomColumns = 50;
+
+        int maximumRoomCount = 6;
 
         Player player;
         sf::Vector2f up = sf::Vector2f(0, -20);
@@ -36,6 +41,7 @@ class World {
         void handlePlayerMovement();
 
         void constructHideout(sf::Texture* tileset);
+        void initializeRoomVectors();
 
         //pathfinding for enemy to player
         //take difference of row/column of enemy and player
