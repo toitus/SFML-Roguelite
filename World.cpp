@@ -3,7 +3,7 @@
 void World::initialize(sf::Texture* tileset) {
     constructHideout(tileset);
     initializeRoomVectors();
-    player.initialize(tileset, sf::Vector2f((int)hideoutColumns/2, (int)hideoutRows/2));
+    player.initialize(tileset, sf::Vector2f(static_cast<int>(hideoutColumns/2), static_cast<int>(hideoutRows/2)));
 }
 
 void World::events(sf::Event* event) {
