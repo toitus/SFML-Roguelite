@@ -4,6 +4,7 @@
 
 #include "Tile.hpp"
 #include "Player.hpp"
+#include "RoomsManager.hpp"
 
 class World {
     public:
@@ -16,32 +17,15 @@ class World {
 
     private:
 
-        int tilesize = 20;
-
-        std::vector<std::vector<std::vector<Tile>>> rooms;
-
-        int currentMap = 0;
-
-        int hideoutRows = 25;
-        int hideoutColumns = 25;
-
-        int maximumRoomRows = 50;
-        int maximumRoomColumns = 50;
-
-        int maximumRoomCount = 6;
-
         Player player;
         sf::Vector2f up = sf::Vector2f(0, -20);
         sf::Vector2f left = sf::Vector2f(-20, 0);
         sf::Vector2f down = sf::Vector2f(0, 20);
         sf::Vector2f right = sf::Vector2f(20, 0);
 
-        void drawMap(sf::RenderWindow* window);
-
         void handlePlayerMovement();
 
-        void constructHideout(sf::Texture* tileset);
-        void initializeRoomVectors();
+        RoomsManager roomsManager;
 
         //pathfinding for enemy to player
         //take difference of row/column of enemy and player
